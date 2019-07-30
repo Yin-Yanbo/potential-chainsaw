@@ -55,10 +55,15 @@ class static_rotor : public rotor{
 	
 	void plugboard(){
 		string::iterator it;
-		string::iterator ab_it = alphabet.begin();
-		for (it = ringstellung.begin(); it < ringstellung.end(); it++){
-			replace(contents.begin(), contents.end(), *ab_it, *it );
-			ab_it++;
+		string::iterator ltr_ptr, pos_ptr, cry_ptr;
+		int dist;
+		for (it = contents.begin(); it < contents.end(); it++){
+			ltr_ptr = find(alphabet.begin(), alphabet.end(), *it);
+			pos_ptr = alphabet.begin();
+			dist = distance(pos_ptr, ltr_ptr);
+			cry_ptr = dist + ringstellung.begin();
+			replace(it, it+1, *ltr_ptr, *cry_ptr);
+			//cout << *cry_ptr << *ltr_ptr << endl;
 		}
 	}
 };
