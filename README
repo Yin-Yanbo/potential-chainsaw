@@ -1,0 +1,6 @@
+# potential-chainsaw
+
+A C++ library for simulating the workings of an Engima machine. Incorporates the following features:
+* Plugboard
+* The five standard Engima rotors
+* The reflector

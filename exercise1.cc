@@ -66,6 +66,15 @@ class static_rotor : public rotor{
 			//cout << *cry_ptr << *ltr_ptr << endl;
 		}
 	}
+	
+	void operation(string input = ""){
+		if (input.empty()){
+		}
+		else{
+			contents = input;
+		}
+		plugboard();
+	}
 };
 
 class moving_rotor : public rotor{
@@ -80,12 +89,12 @@ class reflector : public rotor{
 
 int main(int argc, char *argv[]){
 	
-	static_rotor rot1("plug", "PLACEHOLDER", "input.txt", "output.txt");
-	rot1.plugboard();
+	static_rotor rot1("plug", "PLACEHOLDER", "input", "output");
+	rot1.fromfile();
+	rot1.operation();
 	string test;
 	rot1.exporter(test);
+	rot1.tofile();
 	
-	cout << test << endl;
-
 return 0;
 }
